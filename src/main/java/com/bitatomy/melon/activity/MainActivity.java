@@ -1,4 +1,4 @@
-package com.bitatomy.melon;
+package com.bitatomy.melon.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
