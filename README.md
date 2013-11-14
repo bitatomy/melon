@@ -1,5 +1,6 @@
 # Melon
-A project focused on teaching myself Android Development. The app is built around Twitter hash tags (#) and reveals the most used hash tags at any given time.
+A project focused on teaching myself Android Development. Google's Android website is one of the primary resources I
+followed in addition to various books.
 
 # License
 
