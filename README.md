@@ -2,9 +2,8 @@
 A project focused on teaching myself Android Development. Google's Android website is one of the primary resources I
 followed in addition to various books.
 
-# Action Bar
-The ActionBar APIs were first added in Android 3.0 (API level 11) but they are also available in the Support Library
-for compatibility with Android 2.1 (API level 7) and above.
+# Topic
+The entire focus of this branch is on Action Bar Overlay and Styling. The code is derived from actionbar branch.
 
 # License
 
