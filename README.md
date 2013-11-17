@@ -10,10 +10,10 @@ followed in addition to various books.
 * When the system calls onPause() for your activity, it technically means your activity is still partially visible,
 but most often is an indication that the user is leaving the activity and it will soon enter the Stopped state.
 You should usually use the onPause() callback to:
-** Stop animations or other ongoing actions that could consume CPU.
-** Commit unsaved changes, but only if users expect such changes to be permanently saved when they leave (such as a
+    ** Stop animations or other ongoing actions that could consume CPU.
+    ** Commit unsaved changes, but only if users expect such changes to be permanently saved when they leave (such as a
 draft email).
-** Release system resources, such as broadcast receivers, handles to sensors (like GPS), or any resources that may
+    ** Release system resources, such as broadcast receivers, handles to sensors (like GPS), or any resources that may
 affect battery life while your activity is paused and the user does not need them
 * You should avoid performing CPU-intensive work during onPause(), such as writing to a database, because it can
 slow the visible transition to the next activity (you should instead perform heavy-load shutdown operations during
