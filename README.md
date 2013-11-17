@@ -26,6 +26,17 @@ have a container View in the layout in which the fragment's layout will reside.
 Inside your activity, call getSupportFragmentManager() to get a FragmentManager using the Support Library APIs.
 Then call beginTransaction() to create a FragmentTransaction and call add() to add a fragment.
 
+## Replace One Fragment with Another
+
+The procedure to replace a fragment is similar to adding one, but requires the replace() method instead of add().
+
+Keep in mind that when you perform fragment transactions, such as replace or remove one, it's often appropriate to
+allow the user to navigate backward and "undo" the change. To allow the user to navigate backward through the
+fragment transactions, you must call addToBackStack() before you commit the FragmentTransaction.
+
+Note: When you remove or replace a fragment and add the transaction to the back stack, the fragment that is removed
+is stopped (not destroyed). If the user navigates back to restore the fragment, it restarts. If you do not add the
+transaction to the back stack, then the fragment is destroyed when removed or replaced.
 
 
 # License

@@ -8,4 +8,10 @@
               android:layout_height="wrap_content"
               android:layout_width="wrap_content"
               android:text="@string/newsArticlesText"/>
+
+    <Button   android:id="@+id/newFragment"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:text="@string/loadNewFrag"
+              android:onClick="loadNewFragment"/>
 </LinearLayout>

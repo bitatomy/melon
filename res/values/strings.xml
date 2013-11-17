@@ -3,4 +3,7 @@
     <string name="app_name">Melon</string>
     <string name="articleViewTxt">Article View Fragment</string>
     <string name="newsArticlesText">News Articles Fragment</string>
+    <string name="loadNewFrag">Load Article Fragment</string>
+    <string name="action_search">Search</string>
+    <string name="action_compose">Compose</string>
 </resources>

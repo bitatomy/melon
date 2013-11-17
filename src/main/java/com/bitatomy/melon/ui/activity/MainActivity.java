@@ -2,6 +2,10 @@ package com.bitatomy.melon.ui.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 import com.bitatomy.melon.R;
 import com.bitatomy.melon.ui.fragment.NewsArticlesFragment;
 
@@ -34,6 +38,28 @@ public class MainActivity extends Activity {
 
             // Add the fragment to the 'fragment_container' FrameLayout
             getFragmentManager().beginTransaction().add(R.id.fragment_container, newsArticlesFragment).commit();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_activity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                Toast.makeText(getApplicationContext(), "Searched Pressed", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_compose:
+                Toast.makeText(getApplicationContext(), "Compose Pressed", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
