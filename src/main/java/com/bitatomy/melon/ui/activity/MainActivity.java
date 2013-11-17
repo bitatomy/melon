@@ -1,12 +1,14 @@
 package com.bitatomy.melon.ui.activity;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 import com.bitatomy.melon.R;
+import com.bitatomy.melon.ui.fragment.ArticleFragment;
 import com.bitatomy.melon.ui.fragment.NewsArticlesFragment;
 
 /**
@@ -53,13 +55,39 @@ public class MainActivity extends Activity {
 
         switch (item.getItemId()) {
             case R.id.action_search:
-                Toast.makeText(getApplicationContext(), "Searched Pressed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Switching to Article Fragment", Toast.LENGTH_SHORT).show();
+                openArticleFragment();
                 return true;
             case R.id.action_compose:
-                Toast.makeText(getApplicationContext(), "Compose Pressed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Switching to News Article Fragment", Toast.LENGTH_SHORT).show();
+                openNewsArticleFragment();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void openArticleFragment() {
+        ArticleFragment articleFragment = new ArticleFragment();
+        Bundle args = new Bundle();
+        articleFragment.setArguments(args);
+
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, articleFragment);
+        fragmentTransaction.addToBackStack(null);
+
+        fragmentTransaction.commit();
+    }
+
+    public void openNewsArticleFragment() {
+        NewsArticlesFragment newsArticlesFragment = new NewsArticlesFragment();
+        Bundle args = new Bundle();
+        newsArticlesFragment.setArguments(args);
+
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, newsArticlesFragment);
+        fragmentTransaction.addToBackStack(null);
+
+        fragmentTransaction.commit();
     }
 }
