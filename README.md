@@ -5,6 +5,17 @@ followed in addition to various books.
 # Activity Lifecycle
 ![Activity Lifecycle](http://developer.android.com/images/training/basics/basic-lifecycle.png)
 
+## onCreate()
+
+* When the user selects your app icon from the Home screen, the system calls the onCreate() method for the Activity
+in your app that you've declared to be the "launcher" (or "main") activity. This is the activity that serves as the
+main entry point to your app's user interface.
+* Once the onCreate() finishes execution, the system calls the onStart() and onResume() methods in quick succession.
+Your activity never resides in the Created or Started states. Technically, the activity becomes visible to the user
+when onStart() is called, but onResume() quickly follows and the activity remains in the Resumed state until
+something occurs to change that, such as when a phone call is received, the user navigates to another activity, or
+the device screen turns off.
+
 ## onPause()
 
 * When the system calls onPause() for your activity, it technically means your activity is still partially visible,
@@ -30,6 +41,20 @@ to the Resumed state.
 it's created for the first time. As such, you should implement onResume() to initialize components that you release
 during onPause() and perform any other initializations that must occur each time the activity enters the Resumed
 state (such as begin animations and initialize components only used while the activity has user focus).
+
+## onDestroy()
+
+* While the activity's first lifecycle callback is onCreate(), its very last callback is onDestroy(). The system
+calls this method on your activity as the final signal that your activity instance is being completely removed from
+the system memory.
+* Most apps don't need to implement this method because local class references are destroyed with the activity and
+your activity should perform most cleanup during onPause() and onStop(). However, if your activity includes background
+threads that you created during onCreate() or other long-running resources that could potentially leak memory if not
+properly closed, you should kill them during onDestroy().
+* Note: The system calls onDestroy() after it has already called onPause() and onStop() in all situations except one:
+    * when you call finish() from within the onCreate() method. In some cases, such as when your activity operates as a
+temporary decision maker to launch another activity, you might call finish() from within onCreate() to destroy the
+activity. In this case, the system immediately calls onDestroy() without calling any of the other lifecycle methods.
 
 # License
 
