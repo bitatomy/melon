@@ -2,6 +2,13 @@
 A project focused on teaching myself Android Development. Google's Android website is one of the primary resources I
 followed in addition to various books.
 
+# Fragments
+
+* If the lowest system version you support is API level 11 or higher, then you can use a regular Activity instead of
+FragmentActivity which is available via v4 Support Library.
+* FragmentManager class provides methods that allow you to add, remove, and replace fragments to an activity at
+runtime in order to create a dynamic experience.
+
 # License
 
 GNU GENERAL PUBLIC LICENSE
