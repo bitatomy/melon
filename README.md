@@ -4,10 +4,29 @@ followed in addition to various books.
 
 # Fragments
 
-* If the lowest system version you support is API level 11 or higher, then you can use a regular Activity instead of
+If the lowest system version you support is API level 11 or higher, then you can use a regular Activity instead of
 FragmentActivity which is available via v4 Support Library.
-* FragmentManager class provides methods that allow you to add, remove, and replace fragments to an activity at
+
+FragmentManager class provides methods that allow you to add, remove, and replace fragments to an activity at
 runtime in order to create a dynamic experience.
+
+Rather than defining the fragments for an activity in the layout file—as shown in the previous lesson with
+the <fragment> element—you can add a fragment to the activity during the activity runtime. This is necessary if you
+plan to change fragments during the life of the activity.
+
+To perform a transaction such as add or remove a fragment, you must use the FragmentManager to create a
+FragmentTransaction, which provides APIs to add, remove, replace, and perform other fragment transactions.
+
+If your activity allows the fragments to be removed and replaced, you should add the initial fragment(s) to the
+activity during the activity's onCreate() method.
+
+An important rule when dealing with fragments—especially those that you add at runtime—is that the fragment must
+have a container View in the layout in which the fragment's layout will reside.
+
+Inside your activity, call getSupportFragmentManager() to get a FragmentManager using the Support Library APIs.
+Then call beginTransaction() to create a FragmentTransaction and call add() to add a fragment.
+
+
 
 # License
 
