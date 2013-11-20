@@ -38,6 +38,22 @@ Note: When you remove or replace a fragment and add the transaction to the back 
 is stopped (not destroyed). If the user navigates back to restore the fragment, it restarts. If you do not add the
 transaction to the back stack, then the fragment is destroyed when removed or replaced.
 
+## Communicating with Other Fragments
+
+In order to reuse the Fragment UI components, you should build each as a completely self-contained, modular component
+that defines its own layout and behavior. Once you have defined these reusable Fragments, you can associate them
+with an Activity and connect them with the application logic to realize the overall composite UI.
+
+Often you will want one Fragment to communicate with another, for example to change the content based on a user event.
+All Fragment-to-Fragment communication is done through the associated Activity. Two Fragments should never communicate
+directly.
+
+### Define an Interface
+
+To allow a Fragment to communicate up to its Activity, you can define an interface in the Fragment class and implement
+it within the Activity. The Fragment captures the interface implementation during its onAttach() lifecycle method and
+can then call the Interface methods in order to communicate with the Activity.
+
 
 # License
 
